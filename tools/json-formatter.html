@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-brackets-curly"></i> JSON Formatter</h1>
+            <p>Format, validate, and beautify JSON data with syntax highlighting</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="json-editor">
+                <div class="editor-header">
+                    <h4>JSON Input</h4>
+                    <div class="editor-actions">
+                        <button id="validateJson" class="btn btn-small">
+                            <i class="fas fa-check"></i> Validate
+                        </button>
+                        <button id="formatJson" class="btn btn-small">
+                            <i class="fas fa-indent"></i> Format
+                        </button>
+                        <button id="minifyJson" class="btn btn-small">
+                            <i class="fas fa-compress"></i> Minify
+                        </button>
+                        <button id="clearJson" class="btn btn-small btn-secondary">
+                            <i class="fas fa-times"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                <textarea id="jsonInput" rows="12" placeholder='Paste your JSON here... Example: {"name": "John", "age": 30}'></textarea>
+            </div>
+
+            <div class="json-actions">
+                <button id="processJson" class="btn btn-full">
+                    <i class="fas fa-magic"></i> Process JSON
+                </button>
+            </div>
+
+            <div id="resultArea" class="result-area hidden">
+                <div class="result-header">
+                    <h4>Formatted JSON</h4>
+                    <div class="result-actions">
+                        <button id="copyJson" class="btn btn-small">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button id="downloadJson" class="btn btn-small">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                <pre id="jsonOutput" class="json-output"></pre>
+                
+                <div class="json-stats">
+                    <div class="stat">
+                        <strong>Size:</strong> <span id="jsonSize">0 bytes</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Lines:</strong> <span id="jsonLines">0</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Depth:</strong> <span id="jsonDepth">0</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Keys:</strong> <span id="jsonKeys">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorArea" class="error-area hidden">
+                <h4>Validation Error</h4>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+
+            <div class="json-tools">
+                <h4>JSON Tools</h4>
+                <div class="tools-grid">
+                    <button id="escapeJson" class="tool-btn">
+                        <i class="fas fa-quote-right"></i> Escape JSON
+                    </button>
+                    <button id="unescapeJson" class="tool-btn">
+                        <i class="fas fa-quote-left"></i> Unescape JSON
+                    </button>
+                    <button id="sortJson" class="tool-btn">
+                        <i class="fas fa-sort-alpha-down"></i> Sort Keys
+                    </button>
+                    <button id="jsonToXml" class="tool-btn">
+                        <i class="fas fa-code"></i> JSON to XML
+                    </button>
+                    <button id="jsonToCsv" class="tool-btn">
+                        <i class="fas fa-table"></i> JSON to CSV
+                    </button>
+                    <button id="jsonToYaml" class="tool-btn">
+                        <i class="fas fa-file-alt"></i> JSON to YAML
+                    </button>
+                </div>
+            </div>
+
+            <div class="json-examples">
+                <h4>JSON Examples</h4>
+                <div class="examples-grid">
+                    <div class="example-card" data-example="simple">
+                        <h5>Simple Object</h5>
+                        <code>{"name": "John", "age": 30}</code>
+                    </div>
+                    <div class="example-card" data-example="array">
+                        <h5>Array of Objects</h5>
+                        <code>[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]</code>
+                    </div>
+                    <div class="example-card" data-example="nested">
+                        <h5>Nested Object</h5>
+                        <code>{"user": {"profile": {"name": "John", "address": {"city": "NYC"}}}}</code>
+                    </div>
+                    <div class="example-card" data-example="complex">
+                        <h5>Complex Data</h5>
+                        <code>{"employees": [{"name": "John", "skills": ["JS", "Python"], "active": true}]}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="json-info">
+                <h4>JSON Formatting Options</h4>
+                <div class="format-options">
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="useTabs" checked>
+                        <span class="checkmark"></span>
+                        Use tabs for indentation
+                    </label>
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="quoteKeys" checked>
+                        <span class="checkmark"></span>
+                        Always quote keys
+                    </label>
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="trailingCommas">
+                        <span class="checkmark"></span>
+                        Add trailing commas
+                    </label>
+                    <div class="input-group" style="margin-top: 1rem;">
+                        <label for="indentSize">Indentation Size:</label>
+                        <input type="number" id="indentSize" min="1" max="8" value="2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/json-formatter.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Compressor - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-file-pdf"></i> PDF Compressor</h1>
+            <p>Reduce PDF file size while maintaining quality</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="file-upload" id="fileUpload">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drop your PDF file here or click to browse</h3>
+                <p>Maximum file size: 10MB</p>
+                <input type="file" id="pdfFile" accept=".pdf" hidden>
+            </div>
+
+            <div class="input-group" id="compressionOptions" style="display: none;">
+                <label for="compressionLevel">Compression Level:</label>
+                <select id="compressionLevel">
+                    <option value="low">Low Compression (Better Quality)</option>
+                    <option value="medium" selected>Medium Compression (Recommended)</option>
+                    <option value="high">High Compression (Smaller Size)</option>
+                </select>
+            </div>
+
+            <div id="fileInfo" class="result-area hidden">
+                <h4>File Information:</h4>
+                <p id="fileName"></p>
+                <p id="fileSize"></p>
+                <div class="progress-bar">
+                    <div class="progress" id="compressionProgress"></div>
+                </div>
+                <p id="progressText">Compressing...</p>
+            </div>
+
+            <button id="compressBtn" class="btn btn-full" style="display: none;">
+                <i class="fas fa-compress"></i> Compress PDF
+            </button>
+
+            <div id="resultArea" class="result-area hidden">
+                <h4>Compression Results:</h4>
+                <p id="originalSize"></p>
+                <p id="compressedSize"></p>
+                <p id="savings"></p>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button id="downloadBtn" class="btn">
+                        <i class="fas fa-download"></i> Download Compressed PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="../scripts/tools/pdf-compressor.js"></script>
+</body>
+</html>

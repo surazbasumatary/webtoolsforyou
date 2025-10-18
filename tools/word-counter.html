@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-calculator"></i> Word Counter</h1>
+            <p>Count words, characters, sentences, and analyze your text</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-group">
+                <label for="inputText">Enter your text:</label>
+                <textarea id="inputText" rows="10" placeholder="Type or paste your text here..."></textarea>
+            </div>
+
+            <div class="file-upload-option">
+                <button id="uploadFile" class="btn btn-secondary">
+                    <i class="fas fa-upload"></i> Upload Text File
+                </button>
+                <input type="file" id="fileInput" accept=".txt,.doc,.docx,.pdf" hidden>
+                <span style="margin-left: 1rem; color: #666;">or drag and drop a file</span>
+            </div>
+
+            <!-- Real-time Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-text-width"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-text-height"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="charNoSpaceCount">0</div>
+                        <div class="stat-label">Characters (no spaces)</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-paragraph"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="sentenceCount">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="paragraphCount">0</div>
+                        <div class="stat-label">Paragraphs</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="readingTime">0</div>
+                        <div class="stat-label">Reading Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis -->
+            <div class="analysis-section">
+                <h4>Detailed Analysis</h4>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h5>Word Frequency</h5>
+                        <div id="wordFrequency" class="frequency-list">
+                            <!-- Word frequency will be populated here -->
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <h5>Text Statistics</h5>
+                        <div id="textStats" class="stats-list">
+                            <!-- Additional stats will be populated here -->
+                        </div>
+                    </div>
+                    <div class="analysis-card">
+                        <h5>Reading Level</h5>
+                        <div id="readingLevel" class="level-info">
+                            <!-- Reading level analysis -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Tools -->
+            <div class="text-tools">
+                <h4>Text Tools</h4>
+                <div class="tool-buttons">
+                    <button id="clearText" class="btn btn-secondary">
+                        <i class="fas fa-broom"></i> Clear Text
+                    </button>
+                    <button id="copyText" class="btn btn-secondary">
+                        <i class="fas fa-copy"></i> Copy Text
+                    </button>
+                    <button id="downloadText" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download Analysis
+                    </button>
+                    <button id="formatText" class="btn">
+                        <i class="fas fa-magic"></i> Format Text
+                    </button>
+                </div>
+            </div>
+
+            <!-- Text History -->
+            <div class="text-history">
+                <h4>Recent Texts</h4>
+                <div id="historyList" class="history-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/word-counter.js"></script>
+</body>
+</html>

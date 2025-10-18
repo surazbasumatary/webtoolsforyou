@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-text-height"></i> Text Formatter</h1>
+            <p>Clean, format, and transform your text with various tools</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-group">
+                <label for="inputText">Input Text:</label>
+                <textarea id="inputText" rows="6" placeholder="Paste your text here..."></textarea>
+            </div>
+
+            <div class="format-options">
+                <div class="input-group">
+                    <label>Text Transformation:</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem;">
+                        <button class="btn btn-secondary" data-action="uppercase">
+                            <i class="fas fa-text-height"></i> UPPERCASE
+                        </button>
+                        <button class="btn btn-secondary" data-action="lowercase">
+                            <i class="fas fa-text-height"></i> lowercase
+                        </button>
+                        <button class="btn btn-secondary" data-action="capitalize">
+                            <i class="fas fa-text-height"></i> Capitalize
+                        </button>
+                        <button class="btn btn-secondary" data-action="titlecase">
+                            <i class="fas fa-text-height"></i> Title Case
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Text Cleaning:</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem;">
+                        <button class="btn btn-secondary" data-action="trim">
+                            <i class="fas fa-cut"></i> Trim Spaces
+                        </button>
+                        <button class="btn btn-secondary" data-action="removeExtraSpaces">
+                            <i class="fas fa-space-shuttle"></i> Remove Extra Spaces
+                        </button>
+                        <button class="btn btn-secondary" data-action="removeEmptyLines">
+                            <i class="fas fa-minus"></i> Remove Empty Lines
+                        </button>
+                        <button class="btn btn-secondary" data-action="removeDuplicates">
+                            <i class="fas fa-copy"></i> Remove Duplicates
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Other Tools:</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem;">
+                        <button class="btn btn-secondary" data-action="reverse">
+                            <i class="fas fa-exchange-alt"></i> Reverse Text
+                        </button>
+                        <button class="btn btn-secondary" data-action="wordCount">
+                            <i class="fas fa-calculator"></i> Word Count
+                        </button>
+                        <button class="btn btn-secondary" data-action="sortLines">
+                            <i class="fas fa-sort-alpha-down"></i> Sort Lines
+                        </button>
+                        <button class="btn btn-secondary" data-action="urlEncode">
+                            <i class="fas fa-link"></i> URL Encode
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="outputText">Formatted Text:</label>
+                <textarea id="outputText" rows="6" readonly placeholder="Your formatted text will appear here..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <button id="copyBtn" class="btn">
+                    <i class="fas fa-copy"></i> Copy to Clipboard
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">
+                    <i class="fas fa-broom"></i> Clear All
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/text-formatter.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebToolsForYou - Free Online Tools for Everyday Use</title>
+    <meta name="description" content="Free online tools for PDF compression, QR generation, image editing, text formatting, and more. No registration required.">
+    <meta name="keywords" content="free online tools, pdf compressor, qr generator, image tools, text tools, web utilities">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WebToolsForYou",
+        "description": "Free online tools for everyday tasks including PDF compression, QR generation, and image editing",
+        "url": "https://webtoolsforyou.com",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "permissions": "browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Ad Space -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                    <span class="tagline">Free Online Tools</span>
+                </div>
+                
+                <!-- Header Ad Unit -->
+                <div class="ad-unit header-ad">
+                    <!-- Google AdSense Header Banner -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            
+            <div class="header-bottom">
+                <div class="search-bar">
+                    <input type="text" id="toolSearch" placeholder="Search 15+ tools...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-active">Home</a>
+                    <a href="#tools">All Tools</a>
+                    <a href="#categories">Categories</a>
+                    <a href="#about">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your All-in-One <span class="highlight">Online Toolkit</span></h1>
+                <p class="hero-subtitle">Free, fast, and easy-to-use tools for everyday tasks. No registration required.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-badge">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Tools</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                </div>
+
+                <div class="search-bar hero-search">
+                    <input type="text" id="heroSearch" placeholder="What tool do you need today? (e.g., PDF Compressor, QR Generator)">
+                    <button><i class="fas fa-search"></i> Find Tools</button>
+                </div>
+                
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-rocket"></i> Explore All Tools
+                    </button>
+                    <button class="btn-secondary" onclick="document.getElementById('featured-tools').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-star"></i> Popular Tools
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-Content Ad 1 -->
+    <div class="ad-section">
+        <div class="container">
+            <div class="ad-unit in-content-ad">
+                <!-- Google AdSense In-Content Banner -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="fluid"
+                     data-ad-layout-key="-gw-3+1f-3d+2z"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Tools -->
+    <section class="featured-tools" id="featured-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 Most Popular Tools</h2>
+                <p>Our most frequently used tools by thousands of users daily</p>
+            </div>
+            <div class="tools-grid" id="featuredTools">
+                <!-- Tools will be populated by JavaScript -->
+            </div>
+            
+            <div class="section-cta">
+                <a href="#tools" class="btn-outline">
+                    <i class="fas fa-arrow-right"></i> View All Tools
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>📁 Tool Categories</h2>
+                <p>Browse tools by category to find exactly what you need</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="file">
+                    <div class="category-icon">
+                        <i class="fas fa-file"></i>
+                    </div>
+                    <h3>File Tools</h3>
+                    <p>PDF compression, file conversion, and document tools</p>
+                    <span class="tool-count">5 tools</span>
+                </div>
+                <div class="category-card" data-category="text">
+                    <div class="category-icon">
+                        <i class="fas fa-text-height"></i>
+                    </div>
+                    <h3>Text Tools</h3>
+                    <p>Text formatting, counting, and manipulation tools</p>
+                    <span class="tool-count">4 tools</span>
+                </div>
+                <div class="category-card" data-category="design">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Tools</h3>
+                    <p>Color pickers, image tools, and design utilities</p>
+                    <span class="tool-count">3 tools</span>
+                </div>
+                <div class="category-card" data-category="web">
+                    <div class="category-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Tools</h3>
+                    <p>URL shorteners, QR generators, and web utilities</p>
+                    <span class="tool-count">3 tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-Content Ad 2 -->
+    <div class="ad-section">
+        <div class="container">
+            <div class="ad-unit in-content-ad">
+                <!-- Google AdSense Rectangle -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Tools Section -->
+    <section class="all-tools" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛠️ All Available Tools</h2>
+                <p>Complete collection of our free online utilities</p>
+            </div>
+            <div class="tools-grid" id="allTools">
+                <!-- All tools will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>💡 Why Choose WebToolsForYou?</h2>
+                <p>We're committed to providing the best free tool experience</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>All processing happens in your browser. We never see or store your data.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized tools that work instantly without any delays or loading times.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices - desktop, tablet, and mobile phones.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3>Always Updated</h3>
+                    <p>Regular updates with new tools and improvements based on user feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-Content Ad 3 -->
+    <div class="ad-section">
+        <div class="container">
+            <div class="ad-unit in-content-ad">
+                <!-- Google AdSense Link Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="link"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About WebToolsForYou</h2>
+                    <p>WebToolsForYou started with a simple mission: to provide <strong>completely free, high-quality online tools</strong> that make everyone's digital life easier. We believe that essential utilities should be accessible to everyone without any cost barriers.</p>
+                    
+                    <div class="mission-stats">
+                        <div class="mission-stat">
+                            <span class="mission-number">10,000+</span>
+                            <span class="mission-label">Monthly Users</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="mission-number">50,000+</span>
+                            <span class="mission-label">Tools Used Monthly</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="mission-number">99.9%</span>
+                            <span class="mission-label">Uptime</span>
+                        </div>
+                    </div>
+
+                    <div class="about-features">
+                        <h4>What makes us different:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> <strong>No Registration Required</strong> - Use tools instantly</li>
+                            <li><i class="fas fa-check"></i> <strong>Ad-Supported</strong> - Free forever thanks to our advertisers</li>
+                            <li><i class="fas fa-check"></i> <strong>Client-Side Processing</strong> - Your data never leaves your device</li>
+                            <li><i class="fas fa-check"></i> <strong>Regular Updates</strong> - New tools added frequently</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="visual-card">
+                        <i class="fas fa-tools"></i>
+                        <h4>Growing Collection</h4>
+                        <p>We're constantly adding new tools based on user requests and emerging needs.</p>
+                    </div>
+                    <div class="ad-unit sidebar-ad">
+                        <!-- Google AdSense Square -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                             data-ad-slot="XXXXXXXXXX"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Boost Your Productivity?</h2>
+                <p>Join thousands of users who save time with our free tools every day</p>
+                <div class="cta-buttons">
+                    <a href="#tools" class="btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Start Using Tools Now
+                    </a>
+                    <a href="#featured-tools" class="btn-outline btn-large">
+                        <i class="fas fa-star"></i> Try Popular Tools
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <h3><i class="fas fa-tools"></i> WebToolsForYou</h3>
+                        </div>
+                        <p>Your trusted source for free online tools and utilities.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Tools</h4>
+                            <a href="#tools">All Tools</a>
+                            <a href="#featured-tools">Popular Tools</a>
+                            <a href="#categories">Categories</a>
+                            <a href="#">New Tools</a>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Support</h4>
+                            <a href="#">Help Center</a>
+                            <a href="#">Contact Us</a>
+                            <a href="#">Tool Requests</a>
+                            <a href="#">Report Issue</a>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Legal</h4>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                            <a href="#">Disclaimer</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-ad">
+                        <!-- Google AdSense Footer -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="autorelaxed"
+                             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                             data-ad-slot="XXXXXXXXXX"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                    <div class="footer-info">
+                        <p class="copyright">&copy; 2024 WebToolsForYou. All rights reserved.</p>
+                        <div class="footer-meta">
+                            <span>Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for the community</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Ad (Mobile) -->
+    <div class="floating-ad mobile-only">
+        <!-- Google AdSense Anchor Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    
+    <!-- AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Converter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-code"></i> Base64 Converter</h1>
+            <p>Encode and decode Base64 strings, text, and files</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="conversion-type">
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-tab="text">Text Conversion</button>
+                    <button class="tab-btn" data-tab="file">File Conversion</button>
+                </div>
+            </div>
+
+            <!-- Text Conversion Tab -->
+            <div id="text" class="tab-content active">
+                <div class="conversion-direction">
+                    <label class="direction-option">
+                        <input type="radio" name="direction" value="encode" checked>
+                        <span class="radio-checkmark"></span>
+                        Encode to Base64
+                    </label>
+                    <label class="direction-option">
+                        <input type="radio" name="direction" value="decode">
+                        <span class="radio-checkmark"></span>
+                        Decode from Base64
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label for="inputText" id="inputLabel">Text to encode:</label>
+                    <textarea id="inputText" rows="6" placeholder="Enter text to encode to Base64..."></textarea>
+                </div>
+
+                <div class="conversion-actions">
+                    <button id="convertText" class="btn btn-full">
+                        <i class="fas fa-sync-alt"></i> Convert
+                    </button>
+                </div>
+
+                <div class="input-group">
+                    <label for="outputText" id="outputLabel">Base64 result:</label>
+                    <textarea id="outputText" rows="6" readonly placeholder="Base64 result will appear here..."></textarea>
+                </div>
+
+                <div class="text-actions">
+                    <button id="copyOutput" class="btn">
+                        <i class="fas fa-copy"></i> Copy Result
+                    </button>
+                    <button id="clearText" class="btn btn-secondary">
+                        <i class="fas fa-broom"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- File Conversion Tab -->
+            <div id="file" class="tab-content">
+                <div class="file-conversion-direction">
+                    <label class="direction-option">
+                        <input type="radio" name="fileDirection" value="encode" checked>
+                        <span class="radio-checkmark"></span>
+                        Encode file to Base64
+                    </label>
+                    <label class="direction-option">
+                        <input type="radio" name="fileDirection" value="decode">
+                        <span class="radio-checkmark"></span>
+                        Decode Base64 to file
+                    </label>
+                </div>
+
+                <div class="file-upload-area">
+                    <div class="file-upload" id="fileUpload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3 id="fileUploadTitle">Drop your file here or click to browse</h3>
+                        <p id="fileUploadDescription">Select a file to encode to Base64</p>
+                        <input type="file" id="fileInput" hidden>
+                    </div>
+
+                    <div id="fileInfo" class="file-info hidden">
+                        <h4>Selected File</h4>
+                        <div class="file-details">
+                            <div class="file-icon">
+                                <i class="fas fa-file"></i>
+                            </div>
+                            <div class="file-meta">
+                                <div class="file-name" id="fileName"></div>
+                                <div class="file-size" id="fileSize"></div>
+                                <div class="file-type" id="fileType"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="file-conversion-actions">
+                    <button id="convertFile" class="btn btn-full">
+                        <i class="fas fa-sync-alt"></i> Convert File
+                    </button>
+                </div>
+
+                <div id="fileResult" class="result-area hidden">
+                    <h4>Conversion Result</h4>
+                    <div class="file-result-content">
+                        <div class="input-group">
+                            <label for="fileOutput">Base64 String:</label>
+                            <textarea id="fileOutput" rows="6" readonly placeholder="Base64 string will appear here..."></textarea>
+                        </div>
+                        
+                        <div class="file-result-actions">
+                            <button id="copyFileOutput" class="btn">
+                                <i class="fas fa-copy"></i> Copy Base64
+                            </button>
+                            <button id="downloadFile" class="btn">
+                                <i class="fas fa-download"></i> Download File
+                            </button>
+                            <button id="clearFile" class="btn btn-secondary">
+                                <i class="fas fa-broom"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion History -->
+            <div class="conversion-history">
+                <h4>Conversion History</h4>
+                <div id="historyList" class="history-list"></div>
+                <button id="clearHistory" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i> Clear History
+                </button>
+            </div>
+
+            <!-- Base64 Information -->
+            <div class="base64-info">
+                <h4>About Base64</h4>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h5>What is Base64?</h5>
+                        <p>Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used to encode data that needs to be stored and transferred over media designed to deal with text.</p>
+                    </div>
+                    <div class="info-card">
+                        <h5>Common Uses</h5>
+                        <ul>
+                            <li>Email attachments (MIME)</li>
+                            <li>Embedding images in HTML/CSS</li>
+                            <li>Data URIs</li>
+                            <li>API authentication</li>
+                            <li>Storing binary data in JSON</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h5>Encoding Process</h5>
+                        <p>Base64 converts every 3 bytes of binary data into 4 ASCII characters. The encoded data is typically about 33% larger than the original binary data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/base64-converter.js"></script>
+</body>
+</html>

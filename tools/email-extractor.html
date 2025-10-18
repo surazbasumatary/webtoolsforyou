@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Extractor - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-envelope"></i> Email Extractor</h1>
+            <p>Extract email addresses from text, websites, or documents</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-group">
+                <label for="inputText">Enter text or URL to extract emails from:</label>
+                <textarea id="inputText" rows="6" placeholder="Paste text containing email addresses here, or enter a website URL..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Input Options:</label>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="radio" name="inputType" value="text" checked> Text Input
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="radio" name="inputType" value="url"> Website URL
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="file" id="fileInput" accept=".txt,.html,.pdf" style="display: none;">
+                        <button type="button" id="fileUploadBtn" class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Upload File
+                        </button>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Extraction Options:</label>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="removeDuplicates" checked> Remove Duplicates
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="sortEmails"> Sort Alphabetically
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="validateEmails" checked> Validate Email Format
+                    </label>
+                </div>
+            </div>
+
+            <button id="extractBtn" class="btn btn-full">
+                <i class="fas fa-search"></i> Extract Email Addresses
+            </button>
+
+            <div id="resultArea" class="result-area hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h4>Extracted Email Addresses:</h4>
+                    <span id="emailCount" class="badge">0 emails</span>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="outputText" rows="8" readonly placeholder="Extracted emails will appear here..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button id="copyBtn" class="btn">
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                    <button id="downloadBtn" class="btn">
+                        <i class="fas fa-download"></i> Download as CSV
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-broom"></i> Clear Results
+                    </button>
+                </div>
+            </div>
+
+            <div id="statsArea" class="result-area hidden">
+                <h4>Extraction Statistics:</h4>
+                <div id="statsContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/email-extractor.js"></script>
+</body>
+</html>

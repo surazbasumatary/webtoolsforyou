@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-link"></i> URL Shortener</h1>
+            <p>Shorten long URLs and track your shortened links</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-group">
+                <label for="longUrl">Enter long URL to shorten:</label>
+                <input type="url" id="longUrl" placeholder="https://www.example.com/very-long-url-that-needs-shortening">
+            </div>
+
+            <div class="input-group">
+                <label for="customAlias">Custom alias (optional):</label>
+                <div style="display: flex; gap: 0.5rem;">
+                    <span style="background: #f8f9fa; padding: 0.75rem; border-radius: 4px; border: 1px solid #e1e5e9;">
+                        webtoolsforyou.com/
+                    </span>
+                    <input type="text" id="customAlias" placeholder="my-custom-link" style="flex: 1;">
+                </div>
+                <small style="color: #666; margin-top: 0.5rem; display: block;">
+                    Only letters, numbers, and hyphens allowed. Leave empty for auto-generated alias.
+                </small>
+            </div>
+
+            <button id="shortenBtn" class="btn btn-full">
+                <i class="fas fa-compress"></i> Shorten URL
+            </button>
+
+            <div id="resultArea" class="result-area hidden">
+                <h4>Your Shortened URL:</h4>
+                <div style="display: flex; gap: 0.5rem; align-items: center; margin: 1rem 0;">
+                    <input type="text" id="shortUrl" readonly style="flex: 1; padding: 0.75rem; border: 1px solid #e1e5e9; border-radius: 4px; background: #f8f9fa;">
+                    <button id="copyUrl" class="btn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                <div class="url-stats">
+                    <div class="stat-item">
+                        <strong>Original URL:</strong>
+                        <span id="originalUrl" style="word-break: break-all;"></span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Shortened:</strong>
+                        <span id="shortenedUrl"></span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Clicks:</strong>
+                        <span id="clickCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Created:</strong>
+                        <span id="createdDate"></span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <button id="testUrl" class="btn btn-secondary">
+                        <i class="fas fa-external-link-alt"></i> Test URL
+                    </button>
+                    <button id="newUrl" class="btn btn-secondary">
+                        <i class="fas fa-plus"></i> Create Another
+                    </button>
+                    <button id="shareUrl" class="btn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <div id="historyArea" class="result-area">
+                <h4>Your Shortened URLs</h4>
+                <div id="urlHistory"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/url-shortener.js"></script>
+</body>
+</html>

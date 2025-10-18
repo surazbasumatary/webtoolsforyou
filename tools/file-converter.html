@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-exchange-alt"></i> File Converter</h1>
+            <p>Convert between different file formats instantly</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="conversion-setup">
+                <div class="input-group">
+                    <label for="conversionType">Conversion Type:</label>
+                    <select id="conversionType">
+                        <option value="image">Image Conversion</option>
+                        <option value="document">Document Conversion</option>
+                        <option value="audio">Audio Conversion</option>
+                        <option value="video">Video Conversion</option>
+                    </select>
+                </div>
+
+                <div id="formatOptions" class="format-options">
+                    <!-- Dynamic format options will be populated here -->
+                </div>
+            </div>
+
+            <div class="file-upload-area">
+                <div class="file-upload" id="fileUpload">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3 id="uploadTitle">Drop your file here or click to browse</h3>
+                    <p id="uploadDescription">Select a file to convert</p>
+                    <input type="file" id="fileInput" hidden>
+                </div>
+
+                <div id="fileInfo" class="file-info hidden">
+                    <h4>Selected File</h4>
+                    <div class="file-details">
+                        <div class="file-icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <div class="file-meta">
+                            <div class="file-name" id="fileName"></div>
+                            <div class="file-size" id="fileSize"></div>
+                            <div class="file-type" id="fileType"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conversionOptions" class="conversion-options hidden">
+                <h4>Conversion Settings</h4>
+                <div id="dynamicOptions">
+                    <!-- Dynamic options based on file type -->
+                </div>
+
+                <button id="convertBtn" class="btn btn-full">
+                    <i class="fas fa-sync-alt"></i> Convert File
+                </button>
+            </div>
+
+            <div id="processingArea" class="processing-area hidden">
+                <div class="loading-spinner">
+                    <i class="fas fa-sync-alt fa-spin"></i>
+                    <h4>Converting File...</h4>
+                    <p>Please wait while we process your file.</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="conversionProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultArea" class="result-area hidden">
+                <h4>Conversion Complete!</h4>
+                <div class="conversion-result">
+                    <div class="result-file">
+                        <div class="file-icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <div class="file-meta">
+                            <div class="file-name" id="resultFileName"></div>
+                            <div class="file-size" id="resultFileSize"></div>
+                            <div class="file-format" id="resultFileFormat"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="conversion-stats">
+                        <div class="stat">
+                            <strong>Original Size:</strong> <span id="originalSizeStat"></span>
+                        </div>
+                        <div class="stat">
+                            <strong>Converted Size:</strong> <span id="convertedSizeStat"></span>
+                        </div>
+                        <div class="stat">
+                            <strong>Size Change:</strong> <span id="sizeChangeStat"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <button id="downloadBtn" class="btn">
+                        <i class="fas fa-download"></i> Download Converted File
+                    </button>
+                    <button id="newConversion" class="btn btn-secondary">
+                        <i class="fas fa-plus"></i> New Conversion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/file-converter.js"></script>
+</body>
+</html>

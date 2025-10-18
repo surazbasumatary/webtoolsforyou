@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-eye-dropper"></i> Color Picker</h1>
+            <p>Pick colors from anywhere and get their codes in various formats</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="color-picker-interface">
+                <div class="input-group">
+                    <label>Choose a color:</label>
+                    <input type="color" id="colorPicker" value="#4361ee">
+                </div>
+
+                <div class="input-group">
+                    <label>Or enter color value:</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="colorInput" placeholder="#4361ee or rgb(67, 97, 238)" style="flex: 1;">
+                        <button id="applyColor" class="btn">Apply</button>
+                    </div>
+                </div>
+
+                <div class="color-display">
+                    <div class="color-preview" id="colorPreview" style="background-color: #4361ee;"></div>
+                    <div class="color-info">
+                        <h4>Selected Color</h4>
+                        <div id="colorFormats"></div>
+                    </div>
+                </div>
+
+                <div class="color-history">
+                    <h4>Recently Picked Colors</h4>
+                    <div id="colorHistory" class="history-grid"></div>
+                </div>
+
+                <div class="color-tools">
+                    <h4>Color Tools</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <button id="copyHex" class="btn btn-secondary">
+                            <i class="fas fa-copy"></i> Copy HEX
+                        </button>
+                        <button id="copyRGB" class="btn btn-secondary">
+                            <i class="fas fa-copy"></i> Copy RGB
+                        </button>
+                        <button id="copyHSL" class="btn btn-secondary">
+                            <i class="fas fa-copy"></i> Copy HSL
+                        </button>
+                        <button id="generatePalette" class="btn">
+                            <i class="fas fa-palette"></i> Generate Palette
+                        </button>
+                    </div>
+                </div>
+
+                <div id="colorPalette" class="color-palette hidden">
+                    <h4>Color Palette</h4>
+                    <div id="paletteColors" class="palette-grid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/color-picker.js"></script>
+</body>
+</html>

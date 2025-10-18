@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - WebToolsForYou</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1><i class="fas fa-tools"></i> WebToolsForYou</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">All Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-balance-scale"></i> Unit Converter</h1>
+            <p>Convert between different units of measurement instantly</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-group">
+                <label for="conversionCategory">Conversion Category:</label>
+                <select id="conversionCategory">
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="area">Area</option>
+                    <option value="volume">Volume</option>
+                    <option value="speed">Speed</option>
+                    <option value="time">Time</option>
+                    <option value="digital">Digital Storage</option>
+                    <option value="currency">Currency (Live)</option>
+                </select>
+            </div>
+
+            <div class="converter-interface">
+                <div class="input-group">
+                    <label>From:</label>
+                    <div class="unit-converter">
+                        <input type="number" id="fromValue" value="1" step="any">
+                        <select id="fromUnit"></select>
+                        <button class="swap-btn" id="swapUnits">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        <select id="toUnit"></select>
+                        <input type="number" id="toValue" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conversionResult" class="result-area">
+                <h4>Conversion Result</h4>
+                <div id="resultText" class="result-text"></div>
+                <div id="conversionDetails" class="conversion-details"></div>
+            </div>
+
+            <div class="conversion-history">
+                <h4>Recent Conversions</h4>
+                <div id="historyList" class="history-list"></div>
+                <button id="clearHistory" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i> Clear History
+                </button>
+            </div>
+
+            <!-- Quick Conversions -->
+            <div class="quick-conversions">
+                <h4>Quick Conversions</h4>
+                <div id="quickConversions" class="quick-grid"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/utils.js"></script>
+    <script src="../scripts/tools/unit-converter.js"></script>
+</body>
+</html>
