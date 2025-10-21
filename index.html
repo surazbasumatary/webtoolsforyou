@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,8 +9,903 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778955138168695" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Layout Structure - FIXED */
+        .page-wrapper {
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Fixed Compact Header Styles */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-right: 10px;
+        }
+        
+        .logo i {
+            color: #3498db;
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .tagline {
+            font-size: 12px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .search-container {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 100%;
+        }
+        
+        .search-bar input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-bar input:focus {
+            border-color: #3498db;
+        }
+        
+        .search-bar button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: #2980b9;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .search-result-item:hover {
+            background-color: #f5f7fa;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-icon {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 16px;
+        }
+        
+        .search-result-text h4 {
+            font-size: 14px;
+            margin-bottom: 2px;
+            color: #2c3e50;
+        }
+        
+        .search-result-text p {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .no-results {
+            padding: 15px;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 8px 12px;
+            margin-left: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .nav a:hover, .nav a.nav-active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            color: #f1c40f;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .btn-primary, .btn-secondary, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+        
+        .btn-primary:hover {
+            background-color: #f39c12;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2c3e50;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+        
+        .btn-outline:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-large {
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 40px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 16px;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Tools Grid - Smaller Cards */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 12px;
+        }
+        
+        .tool-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .tool-card p {
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            font-size: 13px;
+        }
+        
+        .tool-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .section-cta {
+            text-align: center;
+        }
+        
+        /* Categories Grid - Smaller Cards */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 12px;
+        }
+        
+        .category-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .category-card p {
+            color: #7f8c8d;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .tool-count {
+            display: inline-block;
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        /* Benefits Grid - Smaller Cards */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .benefit-icon {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 12px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .benefit-card p {
+            color: #7f8c8d;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        
+        .about-text h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .mission-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .mission-stat {
+            text-align: center;
+        }
+        
+        .mission-number {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .mission-label {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .about-features h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        
+        .about-features ul {
+            list-style: none;
+        }
+        
+        .about-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+        
+        .about-features i {
+            color: #2ecc71;
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+        
+        .about-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .visual-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .visual-card i {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 12px;
+        }
+        
+        .visual-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .visual-card p {
+            color: #7f8c8d;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            border-radius: 8px;
+        }
+        
+        .cta-content h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .cta-content p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0 8px;
+            margin-top: 20px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .footer-brand p {
+            margin-bottom: 10px;
+            color: #bdc3c7;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: #34495e;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #3498db;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 4px;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            padding-top: 8px;
+            border-top: 1px solid #34495e;
+        }
+
+        .footer-ad {
+            margin-bottom: 8px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright, .footer-meta {
+            font-size: 11px;
+            color: #95a5a6;
+        }
+        
+        /* Ad Sections */
+        .ad-unit {
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ddd;
+        }
+        
+        .in-content-ad {
+            min-height: 250px;
+            margin: 30px 0;
+        }
+        
+        .sidebar-ad {
+            min-height: 300px;
+        }
+        
+        .floating-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .mobile-only {
+            display: none;
+        }
+        
+        /* Responsive Design - FIXED */
+        @media (max-width: 1200px) {
+            .container, .header-content, .main-content {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-container {
+                margin: 10px 0;
+                max-width: 100%;
+                order: 3;
+                width: 100%;
+            }
+            
+            .nav {
+                width: 100%;
+                justify-content: center;
+                order: 2;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+            
+            .hero-cta, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 0 10px;
+            }
+            
+            .hero {
+                padding: 40px 0;
+                margin: 0 -10px 30px;
+                border-radius: 0;
+            }
+            
+            section {
+                padding: 30px 0;
+            }
+            
+            .tools-grid, .categories-grid, .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .mission-stats {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-info {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            .mobile-only {
+                display: block;
+            }
+            
+            /* Fix header for mobile */
+            .header-content {
+                padding: 0 10px;
+            }
+            
+            .nav a {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 24px;
+            }
+            
+            .hero-subtitle {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+            
+            .section-header h2 {
+                font-size: 24px;
+            }
+            
+            .section-header p {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .nav a {
+                margin: 2px;
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+            
+            .tools-grid, .categories-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                gap: 10px;
+            }
+            
+            .stat-badge {
+                padding: 8px 12px;
+            }
+            
+            .stat-number {
+                font-size: 18px;
+            }
+        }
+    </style>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <!-- Structured Data for SEO -->
@@ -32,7 +926,6 @@
         }
     }
     </script>
-    
 </head>
 <body>
     <!-- Compact Header with Search -->
@@ -64,27 +957,45 @@
         </div>
     </header>
 
-    <!-- Main Layout with Sidebar Ads -->
+    <!-- Main Layout -->
     <div class="page-wrapper">
-        <!-- Left Sidebar Ad -->
-        <aside class="ad-sidebar">
-            <div class="ad-unit">
-                <!-- Google AdSense Left Sidebar -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7778955138168695"
-                     data-ad-slot="2071087613"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </aside>
-
         <!-- Main Content -->
         <main class="main-content">
-             <!-- Featured Tools -->
+            <!-- Hero Section - MOVED TO TOP -->
+            <section class="hero" id="home">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Your All-in-One <span class="highlight">Online Toolkit</span></h1>
+                        <p class="hero-subtitle">Free, fast, and easy-to-use tools for everyday tasks. No registration required.</p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-badge">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Tools</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Free</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Available</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta">
+                            <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">
+                                <i class="fas fa-rocket"></i> Explore All Tools
+                            </button>
+                            <button class="btn-secondary" onclick="document.getElementById('featured-tools').scrollIntoView({behavior: 'smooth'})">
+                                <i class="fas fa-star"></i> Popular Tools
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Tools -->
             <section class="featured-tools" id="featured-tools">
                 <div class="container">
                     <div class="section-header">
@@ -130,40 +1041,6 @@
                         <a href="#tools" class="btn-outline">
                             <i class="fas fa-arrow-right"></i> View All Tools
                         </a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Hero Section -->
-            <section class="hero" id="home">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>Your All-in-One <span class="highlight">Online Toolkit</span></h1>
-                        <p class="hero-subtitle">Free, fast, and easy-to-use tools for everyday tasks. No registration required.</p>
-                        
-                        <div class="hero-stats">
-                            <div class="stat-badge">
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">Tools</span>
-                            </div>
-                            <div class="stat-badge">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Free</span>
-                            </div>
-                            <div class="stat-badge">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">Available</span>
-                            </div>
-                        </div>
-                        
-                        <div class="hero-cta">
-                            <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">
-                                <i class="fas fa-rocket"></i> Explore All Tools
-                            </button>
-                            <button class="btn-secondary" onclick="document.getElementById('featured-tools').scrollIntoView({behavior: 'smooth'})">
-                                <i class="fas fa-star"></i> Popular Tools
-                            </button>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -444,22 +1321,6 @@
                 </div>
             </section>
         </main>
-
-        <!-- Right Sidebar Ad -->
-        <aside class="ad-sidebar">
-            <div class="ad-unit">
-                <!-- Google AdSense Right Sidebar -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7778955138168695"
-                     data-ad-slot="2071087613"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </aside>
     </div>
 
     <!-- Footer -->
@@ -506,7 +1367,17 @@
                 </div>
                 
                 <div class="footer-bottom">
-                   
+                    <div class="footer-ad">
+                        <!-- Google AdSense Footer -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="autorelaxed"
+                             data-ad-client="ca-pub-7778955138168695"
+                             data-ad-slot="2071087613"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                     
                     <div class="footer-info">
                         <p class="copyright">&copy; 2024 WebToolsForYou. All rights reserved.</p>
@@ -519,200 +1390,7 @@
         </div>
     </footer>
 
-    <!-- Floating Ad (Mobile) -->
-    <div class="floating-ad mobile-only">
-        <!-- Google AdSense Anchor Ad -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7778955138168695"
-             data-ad-slot="2071087613"
-             data-ad-format="auto"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    <script>
-        // Tool data for search functionality
-        const toolsData = [
-            {
-                name: "PDF Compressor",
-                description: "Reduce PDF file size without losing quality",
-                category: "file",
-                icon: "fas fa-file-pdf"
-            },
-            {
-                name: "PDF to Word",
-                description: "Convert PDF documents to editable Word files",
-                category: "file",
-                icon: "fas fa-file-export"
-            },
-            {
-                name: "Word to PDF",
-                description: "Convert Word documents to PDF format",
-                category: "file",
-                icon: "fas fa-file-import"
-            },
-            {
-                name: "QR Generator",
-                description: "Create custom QR codes for URLs and text",
-                category: "web",
-                icon: "fas fa-qrcode"
-            },
-            {
-                name: "Image Resizer",
-                description: "Resize images to any dimension quickly",
-                category: "design",
-                icon: "fas fa-image"
-            },
-            {
-                name: "Image Compressor",
-                description: "Reduce image file size while maintaining quality",
-                category: "design",
-                icon: "fas fa-compress-arrows-alt"
-            },
-            {
-                name: "Text Formatter",
-                description: "Format and clean up text with various options",
-                category: "text",
-                icon: "fas fa-text-height"
-            },
-            {
-                name: "Case Converter",
-                description: "Convert text between uppercase, lowercase and more",
-                category: "text",
-                icon: "fas fa-font"
-            }
-        ];
-
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
-            const searchResults = document.getElementById('searchResults');
-            const searchContainer = document.querySelector('.search-container');
-            
-            // Function to perform search
-            function performSearch(query) {
-                if (!query.trim()) {
-                    searchResults.style.display = 'none';
-                    return;
-                }
-                
-                const lowerCaseQuery = query.toLowerCase();
-                const results = toolsData.filter(tool => 
-                    tool.name.toLowerCase().includes(lowerCaseQuery) || 
-                    tool.description.toLowerCase().includes(lowerCaseQuery) ||
-                    tool.category.toLowerCase().includes(lowerCaseQuery)
-                );
-                
-                displaySearchResults(results);
-            }
-            
-            // Function to display search results
-            function displaySearchResults(results) {
-                searchResults.innerHTML = '';
-                
-                if (results.length === 0) {
-                    searchResults.innerHTML = '<div class="no-results">No tools found matching your search</div>';
-                } else {
-                    results.forEach(tool => {
-                        const resultItem = document.createElement('div');
-                        resultItem.className = 'search-result-item';
-                        resultItem.innerHTML = `
-                            <div class="search-result-icon">
-                                <i class="${tool.icon}"></i>
-                            </div>
-                            <div class="search-result-text">
-                                <h4>${tool.name}</h4>
-                                <p>${tool.description}</p>
-                            </div>
-                        `;
-                        
-                        // Add click event to navigate to tool
-                        resultItem.addEventListener('click', function() {
-                            // In a real implementation, this would navigate to the tool page
-                            alert(`Navigating to ${tool.name} tool page`);
-                            searchResults.style.display = 'none';
-                            searchInput.value = '';
-                        });
-                        
-                        searchResults.appendChild(resultItem);
-                    });
-                }
-                
-                searchResults.style.display = 'block';
-            }
-            
-            // Event listeners for search
-            searchInput.addEventListener('input', function() {
-                performSearch(this.value);
-            });
-            
-            searchButton.addEventListener('click', function() {
-                performSearch(searchInput.value);
-            });
-            
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch(this.value);
-                }
-            });
-            
-            // Close search results when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!searchContainer.contains(e.target)) {
-                    searchResults.style.display = 'none';
-                }
-            });
-            
-            // Category filtering
-            const categoryCards = document.querySelectorAll('.category-card');
-            categoryCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    const categoryTools = toolsData.filter(tool => tool.category === category);
-                    
-                    // Display tools in this category
-                    if (categoryTools.length > 0) {
-                        let message = `Tools in ${category} category:\n`;
-                        categoryTools.forEach(tool => {
-                            message += `• ${tool.name}\n`;
-                        });
-                        alert(message);
-                    }
-                });
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Initialize AdSense
-            if (window.adsbygoogle) {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }
-        });
-    </script>
-    
-    <!-- AdSense Auto Ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778955138168695" crossorigin="anonymous"></script>
+    <!-- Include your main JavaScript file -->
+    <script src="/scripts/main.js"></script>
 </body>
 </html>
-
-
-
