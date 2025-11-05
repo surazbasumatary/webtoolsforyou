@@ -18,7 +18,7 @@ class AdsManager {
         // Load Google AdSense script
         const script = document.createElement('script');
         script.async = true;
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-7778955138168695';
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7778955138168695';
         script.crossOrigin = 'anonymous';
         document.head.appendChild(script);
 
@@ -30,26 +30,26 @@ class AdsManager {
         // Ad placements configuration
         this.adConfig = {
             header: {
-                client: 'pub-7778955138168695',
-                slot: 'HEADER_SLOT',
+                client: 'ca-pub-7778955138168695',
+                slot: '1075274529',
                 format: 'auto',
                 responsive: true
             },
             inContent: {
-                client: 'pub-7778955138168695',
-                slot: 'INCONTENT_SLOT',
+                client: 'ca-pub-7778955138168695',
+                slot: '7122750072',
                 format: 'fluid',
                 layoutKey: '-gw-3+1f-3d+2z'
             },
             sidebar: {
-                client: 'pub-7778955138168695',
-                slot: 'SIDEBAR_SLOT',
+                client: 'ca-pub-7778955138168695',
+                slot: '8363571759',
                 format: 'auto',
                 responsive: true
             },
             footer: {
-                client: 'pub-7778955138168695',
-                slot: 'FOOTER_SLOT',
+                client: 'ca-pub-7778955138168695',
+                slot: '2941345375',
                 format: 'autorelaxed'
             }
         };
